@@ -1,0 +1,20 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+	<h1>FFMPEG time cutter tool online</h1>
+</header>
+<form action="result.php" method="post" enctype="multipart/form-data">
+	<p>Select video to upload:</p>
+	<input type="file" name="fileToUpload" id="fileToUpload">
+	</br>
+	<p>Insert start and end time in seconds or hh:mm:ss.ms format</p>
+	<input type="text" placeholder="start" name="start">
+	<input type="text" placeholder="end" name="end">
+	
+	<input type="submit" value="Edit video" name="submit">
+</form>
+</body>
+</html>

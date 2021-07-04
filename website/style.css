@@ -1,0 +1,30 @@
+*
+{
+	font-family: Helvetica, sans-serif;
+}
+body
+{
+	margin: 0;
+	padding: 0;
+	color: white;
+	background:#212121;
+	
+}
+header
+{
+	zoom:1.1;
+	padding:2px;
+	padding-left:40px;
+	background:#F50057;
+}
+form
+{
+	zoom:1.4;
+	margin:40px;
+}
+.centered
+{
+	display: table;
+	padding-top: 20px;
+	margin: 0 auto;
+}

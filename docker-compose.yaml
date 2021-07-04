@@ -1,0 +1,43 @@
+version: "3"
+services:
+    vulnerable:
+        container_name: vulnerable_machine
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                - website_location=website
+        networks:
+            virtual_net:
+                ipv4_address: 10.0.1.1
+        ports:
+            - "8000:80"
+    less_vulnerable:
+        container_name: less_vulnerable_machine
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                - website_location=fix-website
+        networks:
+            virtual_net:
+                ipv4_address: 10.0.2.1
+        ports:
+            - "8080:80"
+    attacker:
+        container_name: attacker_cybersec
+        image: ubuntu:20.04
+        tty: true
+        networks:
+            virtual_net:
+                ipv4_address: 10.0.3.1
+        ports:
+            - "1337:1337"
+
+networks:
+  virtual_net:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.0.0.0/16
+         gateway: 10.0.0.1
