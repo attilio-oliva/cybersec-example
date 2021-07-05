@@ -23,12 +23,13 @@ $target_file = $target_dir . "dummy.mp4";
 
 $time_pattern = "/^[0-9]{1,9}$/";
 $timestamp_pattern = "/^[0-9]{2}\:[0-9]{2}\:[0-9]{2}$/";
+$timestamp_ms_pattern = "/^[0-9]{2}\:[0-9]{2}\:[0-9]{2}\.[0-9]{1,3}$/";
 
 $is_input_set = (isset($start_time) && isset($end_time));
 $is_file_valid = (isset($_FILES["fileToUpload"]) && !empty($_FILES["fileToUpload"]["tmp_name"]));
 
-$is_start_valid = preg_match($time_pattern, $start_time) || preg_match($timestamp_pattern, $start_time);
-$is_end_valid = preg_match($time_pattern, $end_time) || preg_match($timestamp_pattern, $end_time);
+$is_start_valid = preg_match($time_pattern, $start_time) || preg_match($timestamp_pattern, $start_time) || preg_match($timestamp_ms_pattern, $start_time);
+$is_end_valid = preg_match($time_pattern, $end_time) || preg_match($timestamp_pattern, $end_time) || preg_match($timestamp_ms_pattern, $end_time);
 
 if(!$is_input_set || !$is_file_valid || !$is_start_valid || !$is_end_valid)
 {
